@@ -27,15 +27,12 @@ export default function Menu() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
-          {/* Menú izquierdo */}
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/" className="text-white-50">Inicio</Nav.Link>
             <Nav.Link as={Link} to="/juegos" className="text-white-50">Juegos</Nav.Link>
             <Nav.Link as={Link} to="/ofertas" className="text-white-50">Ofertas</Nav.Link>
-            <Nav.Link as={Link} to="/nosotros" className="text-white-50">Sobre Nosotros</Nav.Link>
           </Nav>
 
-          {/* CTA + Cuenta */}
           <div className="d-flex align-items-center gap-3 mt-3 mt-lg-0">
             <Button as={Link} to="/empezar" size="sm" className="btn-pink">
               Empieza ahora

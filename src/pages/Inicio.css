@@ -1,36 +1,11 @@
-/* ===========================
-   BASE / RESET
-=========================== */
-html, body { margin: 0; }
-html { scroll-behavior: smooth; }
-
 .inicio-bg {
-  background: #0b0620; /* base oscura de la página */
+  background: #0b0620;
   color: #fff;
   min-height: 100vh;
 }
 
-/* ===========================
-   NAVBAR (sobre el hero)
-=========================== */
-.topbar-abs {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  background: transparent !important;
-  z-index: 10;
-}
-
-/* Dropdown del navbar legible sobre fondo oscuro */
-.topbar-abs .dropdown-toggle { color: #fff !important; opacity: 1; }
-.topbar-abs .dropdown-toggle:hover,
-.topbar-abs .dropdown-toggle:focus { color: #ff9dca !important; }
-.topbar-abs .dropdown-toggle::after { border-top-color: #fff !important; }
-
-/* ===========================
-   HERO
-=========================== */
-.hero {
-  padding-top: 72px;             /* altura aprox. del navbar */
+.inicio-hero {
+  padding-top: 72px;
   padding-bottom: 36px;
   background:
     radial-gradient(1000px 600px at 85% -20%, rgba(106,0,255,0.22), transparent 60%),
@@ -38,43 +13,29 @@ html { scroll-behavior: smooth; }
     #0b0620;
 }
 
-.hero-title { font-weight: 800; letter-spacing: .2px; margin-bottom: 12px; }
-.hero-desc  { color: #e9e3ff; max-width: 56ch; margin: 0 0 6px; }
-.hero-muted { color: #cbb7ff; }
+.inicio-hero-title { font-weight: 800; letter-spacing: .2px; margin-bottom: 12px; }
+.inicio-hero-desc  { color: #e9e3ff; max-width: 72ch; margin: 0 0 6px; font-size: 1.125rem; }
+.inicio-hero-muted { color: #cbb7ff; }
 
-/* Versión más alta del hero (páginas: Ofertas) */
-.hero.hero-lg {
+.inicio-hero.inicio-hero-lg {
   padding-top: 140px;
   padding-bottom: 64px;
 }
-.hero-title {
-  font-size: clamp(2.6rem, 1.8rem + 2.2vw, 4rem); /* más presencia */
+.inicio-hero-title {
+  font-size: clamp(2.6rem, 1.8rem + 2.2vw, 4rem);
   line-height: 1.12;
 }
-.hero-desc {
-  font-size: 1.125rem;
-  max-width: 72ch;
-}
+.inicio-btn-cta { background:#ff4fa3; border:none; padding:12px 16px; font-weight:700; font-size:1.05rem; }
+.inicio-btn-cta:hover { background:#ff2e92; }
 
-/* ===========================
-   BOTONES
-=========================== */
-.btn-pink { background:#ff4fa3; border:none; }
-.btn-pink:hover { background:#ff2e92; }
-.btn-pink { padding: 12px 16px; font-weight: 700; font-size: 1.05rem; }
-
-/* ===========================
-   SECCIÓN PROMO + MOSAICO
-=========================== */
-.promo-section { padding: 8px 0 32px; }
-.promo-box {
+.inicio-promo { padding: 8px 0 32px; }
+.inicio-promo-box {
   background: #4d2a83; color: #fff; border-radius: 12px;
   padding: 10px 14px; font-weight: 600;
 }
 
-/* Posters */
-.poster-card { background: transparent; border: none; }
-.poster-img {
+.inicio-promo .poster-card { background: transparent; border: none; }
+.inicio-promo .poster-img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
@@ -82,122 +43,51 @@ html { scroll-behavior: smooth; }
   box-shadow: 0 4px 16px rgba(0,0,0,.3);
 }
 
-/* ===========================
-   CAROUSEL DE POSTERS
-=========================== */
-.posters-carousel .carousel-control-prev,
-.posters-carousel .carousel-control-next {
+.inicio-promo .posters-carousel .carousel-control-prev,
+.inicio-promo .posters-carousel .carousel-control-next {
   width: 6%;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,.4));
 }
-.posters-carousel .carousel-control-prev-icon,
-.posters-carousel .carousel-control-next-icon {
+.inicio-promo .posters-carousel .carousel-control-prev-icon,
+.inicio-promo .posters-carousel .carousel-control-next-icon {
   background-size: 100% 100%;
 }
-.more-posters-section { padding: 24px 0 8px; }
-
-/* ===========================
-   FOOTER
-=========================== */
-.footer-nc {
-  background:
-    radial-gradient(800px 400px at 100% 0, rgba(106,0,255,.15), transparent 60%),
-    #0a0720;
-  padding: 32px 0;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-.footer-nc h5, .footer-nc h6 { color: #fff; }
-.footer-nc .link-light { color: #e9e3ff !important; }
-.footer-nc .link-light:hover { color: #ff9dca !important; }
-
-/* Redes en el footer (opcional) */
-.footer-social { gap: 12px; }
-.footer-social a {
-  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; text-decoration: none;
-  transition: transform .15s ease, background .15s ease, color .15s ease;
-}
-.footer-social a:hover { transform: translateY(-2px); background: #ff4fa3; color: #0b0620; }
-
-/* ===========================
-   LAYOUT CONTENEDOR XL
-=========================== */
-.container-xxl { max-width: 1440px; }
-
-/* ===========================
-   OFERTAS (cards y pill)
-=========================== */
-.ofertas-section { padding: 24px 0 80px; } /* más aire abajo */
-
-.plan-card {
-  position: relative;   /* Necesario para posicionar el pill */
-  padding-top: 26px;    /* deja espacio para el pill */
-  border-radius: 18px;
-  min-height: 380px;
-}
-
-/* Estilo oscuro con glow violeta (como la captura) */
-.plan-dark{
-  background:#1a1430;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.55),
-    0 0 0 1px rgba(255,255,255,.06),
-    0 18px 55px rgba(185,0,255,.25);
-}
-
-.plan-card .card-body {
-  padding: 24px 24px 26px;
-  font-size: 1.08rem;
-}
-.plan-title { font-size: 1.25rem; letter-spacing:.2px; }
-.plan-sub   { font-size: 1.02rem; color:#cfcbe6; }
-
-/* Lista con bullets personalizados */
-.plan-features{ list-style:none; padding-left:1.2rem; color:#cfcbe6; }
-.plan-features li{ margin-bottom: 8px; position: relative; padding-left: 14px; }
-.plan-features li::before{
-  content:""; width:7px; height:7px; border-radius:50%;
-  background:#ff4fa3; position:absolute; left:0; top:.55rem;
-  box-shadow:0 0 10px rgba(255,79,163,.6);
-}
-
-/* Pill de precio centrado sobre la card */
-.price-pill {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 0;
-
-  padding: 10px 20px;
-  font-size: 1.05rem;
-  letter-spacing: .2px;
-
-  background: linear-gradient(135deg,#6a3bd8 0%, #8f58ff 60%, #b57bff 100%);
-  color: #fff;
-  border-radius: 999px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.45);
-  white-space: nowrap;
-}
-
-/* ===========================
-   UTILIDADES
-=========================== */
-.fw-700{ font-weight:700; }
-.fw-800{ font-weight:800; }
-
-/* ===========================
-   BREAKPOINTS
-=========================== */
-@media (min-width: 1400px) {
-  .container-xxl { max-width: 1536px; }
-  .hero-title   { font-size: 4.2rem; }
-  .plan-card    { min-height: 400px; }
-  .plan-card .card-body { font-size: 1.1rem; }
-  .price-pill   { font-size: 1.1rem; }
-}
+.inicio-promo .more-posters-section { padding: 24px 0 8px; }
 
 @media (max-width: 576px) {
-  .hero.hero-lg { padding-top: 96px; padding-bottom: 32px; }
-  .hero-title   { font-size: clamp(2rem, 1.6rem + 2.4vw, 2.6rem); }
-  .plan-card    { min-height: unset; }
+  .inicio-hero.inicio-hero-lg { padding-top: 96px; padding-bottom: 32px; }
+  .inicio-hero-title   { font-size: clamp(2rem, 1.6rem + 2.4vw, 2.6rem); }
+}
+.inicio-beneficios{
+  background: transparent;        
+  padding: 36px 0 48px;           
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.inicio-b-item{
+  color:#e9e3ff;
+  max-width: 36ch;
+  margin: 0 auto;
+}
+
+.inicio-b-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:64px; height:64px; border-radius:18px;
+  background: rgba(255,255,255,.05);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 25px rgba(0,0,0,.25);
+  color:#d3d1ff; margin-bottom:12px;
+}
+
+.inicio-b-title{
+  font-size: clamp(1.15rem, 1rem + .5vw, 1.45rem);
+  font-weight:800; letter-spacing:.2px; margin: 8px 0 6px;
+}
+
+.inicio-b-text{
+  color:#cfcbe6; line-height:1.6; margin: 0 auto;
+}
+
+@media (max-width: 576px){
+  .inicio-beneficios{ padding: 28px 0 36px; }
 }
