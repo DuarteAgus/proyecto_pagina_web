@@ -22,7 +22,6 @@ export default function Footer() {
               <Nav.Link href="/" className="link-light px-0">Inicio</Nav.Link>
               <Nav.Link href="/juegos" className="link-light px-0">Juegos</Nav.Link>
               <Nav.Link href="/ofertas" className="link-light px-0">Ofertas</Nav.Link>
-              <Nav.Link href="/nosotros" className="link-light px-0">Sobre Nosotros</Nav.Link>
             </Nav>
           </Col>
 

@@ -1,0 +1,60 @@
+.of-section { padding: 24px 0 80px; } 
+
+.of-hero { padding-top: 72px; padding-bottom: 36px; background:#0b0620; }
+.of-hero.of-hero-lg { padding-top: 140px; padding-bottom: 64px; }
+.of-hero .of-title {
+  font-size: clamp(2.6rem, 1.8rem + 2.2vw, 4rem);
+  line-height: 1.12;
+}
+.of-hero .of-desc { font-size: 1.125rem; color:#e9e3ff; }
+
+.of-card {
+  position: relative;   
+  padding-top: 26px;    
+  border-radius: 18px;
+  min-height: 380px;
+}
+.of-card.of-dark{
+  background:#1a1430;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.55),
+    0 0 0 1px rgba(255,255,255,.06),
+    0 18px 55px rgba(185,0,255,.25);
+}
+.of-card .card-body {
+  padding: 24px 24px 26px;
+  font-size: 1.08rem;
+}
+.of-title { font-size: 1.25rem; letter-spacing:.2px; }
+.of-sub   { font-size: 1.02rem; color:#cfcbe6; }
+
+.of-features{ list-style:none; padding-left:1.2rem; color:#cfcbe6; }
+.of-features li{ margin-bottom: 8px; position: relative; padding-left: 14px; }
+.of-features li::before{
+  content:""; width:7px; height:7px; border-radius:50%;
+  background:#ff4fa3; position:absolute; left:0; top:.55rem;
+  box-shadow:0 0 10px rgba(255,79,163,.6);
+}
+
+.of-price {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 0;
+
+  padding: 10px 20px;
+  font-size: 1.05rem;
+  letter-spacing: .2px;
+
+  background: linear-gradient(135deg,#6a3bd8 0%, #8f58ff 60%, #b57bff 100%);
+  color: #fff;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.45);
+  white-space: nowrap;
+}
+
+@media (min-width: 1400px) {
+  .of-card    { min-height: 400px; }
+  .of-card .card-body { font-size: 1.1rem; }
+  .of-price   { font-size: 1.1rem; }
+}

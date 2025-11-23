@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,11 +11,33 @@ export default function JuegosLista() {
   const [selected, setSelected] = useState(null);
   const detailRef = useRef(null);
 
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    const openId = searchParams.get('open');
+    if (openId && !selected) {
+      const g = GAMES.find((x) => String(x.id) === String(openId));
+      if (g) setSelected(g);
+    }
+  }, []); 
+
   useEffect(() => {
     if (selected && detailRef.current) {
       detailRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      if (searchParams.get('open') !== String(selected.id)) {
+        const sp = new URLSearchParams(searchParams);
+        sp.set('open', selected.id);
+        setSearchParams(sp, { replace: true });
+      }
     }
-  }, [selected]);
+  }, [selected, searchParams, setSearchParams]);
+
+
+  const loginUrl = selected
+    ? `/login-cliente?next=${encodeURIComponent(`/juegos?open=${selected.id}`)}`
+    : `/login-cliente?next=${encodeURIComponent(location.pathname)}`;
 
   return (
     <div className="inicio-bg">
@@ -71,8 +94,28 @@ export default function JuegosLista() {
                 </div>
 
                 <div className="d-flex gap-2 mt-3">
-                  <Button className="btn-pink">Jugar ahora</Button>
-                  <Button variant="outline-light" onClick={() => setSelected(null)}>
+                  <Button
+                    as={Link}
+                    to={loginUrl}
+                    className="btn-pink"
+                    onClick={() => {
+                      alert('Iniciando juego correctamente...');
+                    }}
+                  >
+                    Jugar ahora
+                  </Button>
+
+                  <Button
+                    variant="outline-light"
+                    onClick={() => {
+                      setSelected(null);
+                      if (searchParams.has('open')) {
+                        const sp = new URLSearchParams(searchParams);
+                        sp.delete('open');
+                        setSearchParams(sp, { replace: true });
+                      }
+                    }}
+                  >
                     Cerrar
                   </Button>
                 </div>

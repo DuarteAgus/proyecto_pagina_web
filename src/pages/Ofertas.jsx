@@ -21,7 +21,11 @@ const PLANES = [
     precio: 15000,
     desc:
       'Pensado para gamers exigentes: 120 fps en 1080p / 60 fps en 1440p, priorización de red y colas rápidas.',
-    features: ['Catálogo completo', 'Soporte prioritario', 'Hasta 2 dispositivos simultáneos'],
+    features: [
+      'Catálogo completo',
+      'Soporte prioritario',
+      'Hasta 2 dispositivos simultáneos',
+    ],
   },
   {
     id: 'eclipse',
@@ -29,7 +33,11 @@ const PLANES = [
     precio: 20000,
     desc:
       'Lo máximo para streamers: 4K HDR, servidores premium y soporte dedicado 24/7.',
-    features: ['Catálogo + DLCs selectos', 'Soporte dedicado', 'Hasta 3 dispositivos simultáneos'],
+    features: [
+      'Catálogo + DLCs selectos',
+      'Soporte dedicado',
+      'Hasta 3 dispositivos simultáneos',
+    ],
   },
 ];
 
@@ -42,7 +50,8 @@ export default function Ofertas() {
         <Container className="container-xxl">
           <h1 className="of-title mb-3">Una experiencia gamer de otro nivel</h1>
           <p className="of-desc">
-            Elegí el plan que mejor se adapte a tu estilo. Baja latencia, gráficos fluidos y hasta 4K.
+            Elegí el plan que mejor se adapte a tu estilo. Baja latencia,
+            gráficos fluidos y hasta 4K.
           </p>
         </Container>
       </section>
@@ -50,7 +59,7 @@ export default function Ofertas() {
       <section className="of-section">
         <Container className="container-xxl">
           <Row className="g-4 g-xl-5">
-            {PLANES.map(p => (
+            {PLANES.map((p) => (
               <Col key={p.id} md={6} lg={4}>
                 <Card className="of-card of-dark border-0 position-relative">
                   <div className="of-price fw-700">
@@ -62,12 +71,12 @@ export default function Ofertas() {
                       {p.titulo}
                     </Card.Title>
 
-                    <Card.Text className="of-sub mb-3">
-                      {p.desc}
-                    </Card.Text>
+                    <Card.Text className="of-sub mb-3">{p.desc}</Card.Text>
 
                     <ul className="of-features mb-4">
-                      {p.features.map((f, i) => <li key={i}>{f}</li>)}
+                      {p.features.map((f, i) => (
+                        <li key={i}>{f}</li>
+                      ))}
                     </ul>
 
                     <Button

@@ -1,27 +1,55 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
-export default function AuthProvider( {children} ){
+export default function AuthProvider({ children }) {
+  const [is_logueado, setIsLogueado] = useState(false);
+  const [user, setUser] = useState(null);
 
-    const [is_logueado, setIsLogueado] = useState(false);
-    
-    const login = () => {
-        setIsLogueado(true);
-    }
-    const logout = () => {
-        setIsLogueado(false);
-    }
+  const loginCliente = (email) => {
+    const nuevoUser = { email, role: 'cliente' };
+    setUser(nuevoUser);
+    setIsLogueado(true);
+  };
 
-   return(
-      <AuthContext.Provider  value={ {is_logueado, login, logout} }>
-         {children}
-      </AuthContext.Provider>
+  const loginAdmin = (email) => {
+    const nuevoUser = { email, role: 'admin' };
+    setUser(nuevoUser);
+    setIsLogueado(true);
+  };
 
-   )
+  const registerCliente = ({ nombre, email, password }) => {
+    const nuevoUser = {
+      nombre,
+      email,
+      role: 'cliente',
+    };
 
+    setUser(nuevoUser);
+    setIsLogueado(true);
+  };
+
+  const logout = () => {
+    setUser(null);
+    setIsLogueado(false);
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{
+        is_logueado,
+        user,
+        isAdmin: user?.role === 'admin',
+        isCliente: user?.role === 'cliente',
+        loginCliente,
+        loginAdmin,
+        registerCliente,  
+        logout,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
-export const useAuth = () => {
-    return useContext(AuthContext);
-}
+export const useAuth = () => useContext(AuthContext);
